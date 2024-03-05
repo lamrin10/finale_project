@@ -562,7 +562,7 @@ def unlike_post(request, id):
     if request.user.is_authenticated:
         if request.method == 'PUT':
             post = Post.objects.get(pk=id)
-            print(post)
+            print(post)   #git sildai
             try:
                 post.likers.remove(request.user)
                 post.save()
