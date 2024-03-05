@@ -1,0 +1,125 @@
+{% extends 'network/index.html' %}
+
+
+{% load static %}
+{% block profile_edit %}
+
+<style>
+    .main-div-content {
+        display: none;  
+    }
+    
+
+    
+
+
+</style>
+
+<div style="border: 2px solid #e6ecf0; padding: 10px;">
+<form method="post"  style="text-align: center;" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <!-- Profile Name-->
+     <!-- First Name -->
+     <div class="form-group">
+        <h5 ><label for="{{ form.first_name.id_for_label }}">First Name:</label></h5>
+        <div style="display: inline-block; text-align: center;">
+        {{ form.first_name }}
+        </div>
+        {% if form.first_name.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.first_name.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Last Name -->
+    <div class="form-group">
+        <h5><label for="{{ form.last_name.id_for_label }}">Last Name:</label></h5>
+        <div style="display: inline-block; text-align: center;">
+        {{ form.last_name }}
+        </div>
+        {% if form.last_name.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.last_name.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+     <!-- User Name -->
+     <div class="form-group">
+        <h5><label for="{{ form.username.id_for_label }}">User Name:</label></h5>
+        <div style="display: inline-block; text-align: center;">
+        {{ form.username }}
+        </div>
+        {% if form.username.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.username.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+  
+   
+    
+    <!-- Profile Picture -->
+    <div class="form-group">
+        <h5><label for="{{ form.profile_pic.id_for_label }}">Profile Picture:</label></h5>
+        <div style="display: inline-block; text-align: center;">
+            {{ form.profile_pic}}
+           
+        </div>
+        <!-- Optionally, to include form errors here -->
+        {% if form.profile_pic.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.profile_pic.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bio -->
+    <div class="form-group">
+       <h5> <label for="{{ form.bio.id_for_label }}">Bio:</label></h5>
+        
+        <div style="display: inline-block; text-align: center;">
+        {{ form.bio }}
+    </div>
+        <!-- Optionally to include form errors here -->
+        {% if form.bio.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.bio.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Cover Photo -->
+    <div class="form-group">
+       <h5><label for="{{ form.cover.id_for_label }}">Cover Photo:</label></h5> 
+       
+        <div style="display: inline-block; text-align: center;">
+        {{ form.cover }}
+        </div>
+        <!-- Optionally to include form errors here -->
+        {% if form.cover.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.cover.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+  </form>
+</div>
+    
+{% endblock %}

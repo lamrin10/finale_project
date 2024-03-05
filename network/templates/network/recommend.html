@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Bimarsha - Recommend</title>
+    <link rel="shortcut icon" href="http://127.0.0.1:8000/static/network/Images/fav.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .text-design {
+            color: red;
+        }
+
+        
+
+        .text-center-custom {
+            text-align: center;
+        }
+
+        .navbar-nav a {
+            text-decoration: none;
+        }
+
+        /* CSS to set a fixed height for card images */
+        .card-img-fixed-height {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .nav-link{
+    padding: 10px 20px 8px 12px;
+    height: 100%;
+    color: #14171a;
+    font-weight: 700;
+    border-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    line-height: 0.9em;
+    width: max-content;
+    }
+
+    .sidebar-sticky{
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border-radius: 25px;
+    line-height: 0.9em;
+    width: max-content;
+
+    }
+
+    .sidebar-sticky .nav-link:hover{
+    color: #54B4D3;
+    background-color: #e7f8ef;
+    transition-duration: .2s;
+    }
+
+
+
+    .sidebar-sticky ul{
+    list-style: none;
+    padding-left: 10px;
+    margin-top: 3vh;
+    }
+
+    
+    </style>
+</head>
+
+<body style="background-color: white;">
+
+ 
+    <div class="container-fluid" >
+        <div class="row"  style="border-right: 2px solid #e6ecf0;">
+            <nav class="col-md-2 d-none d-md-block sidebar"  style="border-right: 2px solid #e6ecf0;" >
+                <div class="sidebar-sticky" style="margin-top: 30px;">
+                    <a href="/" class="navbar-brand">
+                        <img src="http://127.0.0.1:8000/static/network/Images/BLogo.png" alt="Logo" style="width:100%; height: 40px;">
+                    </a>
+    
+                    
+                    <ul class="nav flex-column" style="margin-top: 30px">
+                        <li class="nav-item" id="home">
+                            <a class="nav-link" href="/">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                                        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"/>
+                                    </svg>
+                                    &nbsp;Home
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="bookscollection">
+                            <a class="nav-link" href="{% url 'bookscoll' %}">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                                        <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+                                    </svg>
+                                    &nbsp;Books Collection
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="recommend">
+                            <a class="nav-link" href="{% url 'recommend' %}">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+                                    </svg>
+                                    &nbsp;Recommendation
+                                </div>
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </nav>
+            
+    
+            <!-- Content Area -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="border: 1px solid  #e6ecf0;">
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12" >
+                            <h1 style="font-size: 50px; margin-top: 20px; font-family: playfair display; color: #333; font-weight: bold; text-align: center;">Book Recommendation</h1>
+
+                            
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                
+                                <input name="user_input" type="text" class="form-control" placeholder="Enter Book Name Here"
+                                    value="{{ request.POST.user_input }}" style="border-color: #d5f0ee; border-width: 3px;"><br>
+                                <input type="submit" class="btn btn-lg btn-warning mx-auto d-block"
+                                    value=" Recommend "><br>
+                            </form>
+                        </div>
+                        {% if showtitle %}
+                    {% if source == 'recommendations' %}
+                        <h1>
+                            TOP 8 RECOMMENDATIONS FOR " {{user_input}} "
+                        </h1>
+                    {% elif source == 'search_results' %}
+                        <h1>
+                             SEARCH RESULTS FOR Kyeword " {{user_input}} "
+                        </h1>
+                    {% endif %}
+                {% endif %}
+                        {% if not_available_message %}
+                        <div class="col-md-12">
+                            <p class="text-design">{{ not_available_message }}</p>
+                        </div>
+                        {% else %}
+                        {% for item in data %}
+                        <div class="col-md-3" style="margin-top:50px">
+                            <div class="card m-1 text-center"style="height: 600px;">
+                                <div class="card-body" style="background-color: #d5f0ee; border: 3px solid black; transition: border-color 0.3s;" onmouseover="this.style.borderColor='#04AF70'" onmouseout="this.style.borderColor='black'">
+                                    <img class="card-img-top card-img-fixed-height" src="{{ item.image }}"style="margin-bottom:10px; border : 1px solid #000; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
+                                    <h4 class="text-design">{{ item.title }}</h4>
+                                    <p class="text-designe">By: {{ item.author}}</p>
+                                    <p class="text-designe">Genre: {{ item.genre}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+    
+
+</body>
+
+</html>
